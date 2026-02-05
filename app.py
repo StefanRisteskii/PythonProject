@@ -8,8 +8,34 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 
+from google import genai
+
+MODEL_NAME = "gemini-3-flash-preview"
+
+GEMINI_API_KEY = "AIzaSyD_XYZf6ZRBk7fgH6DImjAFsqLnoKo-QoM"
+
 with app.app_context():
     db.create_all()
+
+
+def generate_text(prompt: str) -> str:
+        # ова е функцијата којашто ќе ја користиме за да добиеме notes и description со помош на AI
+        api_key = GEMINI_API_KEY
+
+        if not api_key:
+            return "GEMINI_API_KEY недостасува или е погрешен"
+
+        client = genai.Client(
+            api_key=api_key)  # креираме гемини клиент којшто ни овозможува комуникација со нивното АПИ
+
+        try:
+            response = client.models.generate_content(
+                model=MODEL_NAME,
+                contents=prompt,
+            )
+            return (response.text or "").strip() or "Нема резултат од AI (празен текст)."
+        except Exception as e:
+            return f"AI грешка: {e}"
 
 @app.route('/')
 def index():
@@ -68,13 +94,14 @@ def detail(item_id):
 @app.route('/ai/<int:item_id>')
 def ai_improve(item_id):
     item = Item.query.get_or_404(item_id)
+    prompt =  f"""
+    Improve the description for this item. Create short description 2-3 sentences with these infomation in macedonian. Keep only the description nothing else.
+    This {item.title.lower()} was {item.type.lower()}.
+    Location: {item.location}.
+    Please contact: {item.contact}.
+    """
+    item.ai_description = generate_text(prompt)
 
-    item.ai_description = f"""
-Improved description:
-This {item.title.lower()} was {item.type.lower()}.
-Location: {item.location}.
-Please contact: {item.contact}.
-"""
     db.session.commit()
     return redirect(url_for('detail', item_id=item.id))
 
