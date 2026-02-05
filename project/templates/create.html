@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oglas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+<h2>Нов оглас</h2>
+
+<form method="post">
+    <label>Тип:</label>
+    <select name="type" required>
+        <option>Lost</option>
+        <option>Found</option>
+    </select><br><br>
+
+    <input name="title" placeholder="Наслов" required><br><br>
+    <textarea name="description" placeholder="Опис" required></textarea><br><br>
+    <input name="location" placeholder="Локација" required><br><br>
+    <input name="date" type="date" required><br><br>
+    <input name="contact" placeholder="Контакт" required><br><br>
+    <a class="link1" href="{{ url_for('list_items') }}">Објавени огласи.</a>
+
+    <button type="submit">Зачувај</button>
+</form>
+</body>
+</html>

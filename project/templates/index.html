@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="container">
+    <div class="left">
+      <h1>Lost something?<br>Let’s find it together!</h1>
+      <p>
+        Sign in or sign up to access our community-driven
+        lost and found platform.
+      </p>
+    </div>
+
+    <div class="right">
+      <div class="form-box">
+        <h2>Sign up to Lost&Found</h2>
+        <p>Enter your details below.</p>
+
+        <form method="POST" action="/signup">
+  <label>FULL NAME</label>
+  <input type="text" name="name" placeholder="Your name" required>
+
+  <label>EMAIL</label>
+  <input type="email" name="email" placeholder="Enter your email" required>
+
+  <label>PASSWORD</label>
+  <input type="password" name="password" placeholder="Password" required>
+
+  <label>CONFIRM PASSWORD</label>
+  <input type="password" name="confirm_password" placeholder="Confirm password" required>
+
+  <button type="submit" class="signup-btn">SIGN UP</button>
+</form>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detali</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+  <h2>{{ item.title }}</h2>
+
+  <div class="info-row">
+    <span class="label">Тип</span>
+    <span class="value">{{ item.type }}</span>
+  </div>
+
+  <div class="info-row">
+    <span class="label">Опис</span>
+    <span class="value">{{ item.description }}</span>
+  </div>
+
+  <div class="info-row">
+    <span class="label">Локација</span>
+    <span class="value">{{ item.location }}</span>
+  </div>
+
+  <div class="info-row">
+    <span class="label">Контакт</span>
+    <span class="value">{{ item.contact }}</span>
+  </div>
+
+  {% if item.ai_description %}
+    <h3> AI подобрен опис</h3>
+    <p class="ai-description">{{ item.ai_description }}</p>
+  {% else %}
+    <a class="ai-btn" href="/ai/{{ item.id }}"> AI подобри опис</a>
+  {% endif %}
+</div>
+
+</body>
+</html>

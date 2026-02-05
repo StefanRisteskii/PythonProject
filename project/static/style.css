@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+body {
+  min-height: 100vh;
+  background: #f5f6fa;
+}
+
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+.left {
+  flex: 1;
+  background: linear-gradient(
+      rgba(88, 24, 196, 0.85),
+      rgba(88, 24, 196, 0.85)
+    ),
+    url("/static/bg.jpg") center/cover no-repeat;
+  color: #fff;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.left p {
+  font-size: 16px;
+  max-width: 420px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+
+.right {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 420px;
+}
+
+.form-box h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.form-box p {
+  color: #777;
+  margin-bottom: 30px;
+}
+
+
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: #6c2bd9;
+}
+
+
+button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #6c2bd9, #8e44ff);
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+
+.top-link {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 14px;
+}
+
+.top-link a {
+  text-decoration: none;
+  color: #6c2bd9;
+  font-weight: 600;
+  border: 1px solid #6c2bd9;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+.signup-btn {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #6c2bd9, #8e44ff);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.signup-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left {
+    min-height: 300px;
+  }
+}
+
