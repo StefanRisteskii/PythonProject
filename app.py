@@ -12,7 +12,7 @@ from google import genai
 
 MODEL_NAME = "gemini-3-flash-preview"
 
-GEMINI_API_KEY = "AIzaSyCnoLWEsfX7hqCHq20d88cNWwVrtodiRYY"
+GEMINI_API_KEY = "AIzaSyDyzO5bDrqpI9oQHW4b4u0iGcMK3ko0kcw"
 
 with app.app_context():
     db.create_all()
